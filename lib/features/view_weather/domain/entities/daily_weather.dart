@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
+import 'package:weather_app/features/view_weather/domain/entities/weather.dart';
 
 class DailyWeather extends Equatable {
-  final String icon;
-  final String description;
+  final Weather weather;
   final double windSpeed;
   final int maxTemp;
   final int minTemp;
@@ -12,8 +11,7 @@ class DailyWeather extends Equatable {
   final DateTime dateTime;
 
   const DailyWeather({
-    required this.icon,
-    required this.description,
+    required this.weather,
     required this.windSpeed,
     required this.maxTemp,
     required this.minTemp,
@@ -24,8 +22,7 @@ class DailyWeather extends Equatable {
 
   @override
   List<Object?> get props => [
-        icon,
-        description,
+        weather,
         windSpeed,
         maxTemp,
         minTemp,

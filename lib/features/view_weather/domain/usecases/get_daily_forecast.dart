@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:weather_app/core/error/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:weather_app/core/usecases/usecase.dart';
@@ -12,6 +13,6 @@ class GetDailyForecast implements Usecase<DailyForecast, ForecastParams> {
 
   @override
   Future<Either<Failure, DailyForecast>> call(ForecastParams params) {
-    return forecaseRepository.getDailyForecast(params.lat, params.lon);
+    return forecaseRepository.getDailyForecast(params.context);
   }
 }

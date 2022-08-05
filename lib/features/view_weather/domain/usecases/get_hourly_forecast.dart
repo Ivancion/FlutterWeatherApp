@@ -12,6 +12,6 @@ class GetHourlyForecast implements Usecase<HourlyForecast, ForecastParams> {
 
   @override
   Future<Either<Failure, HourlyForecast>> call(ForecastParams params) {
-    return forecaseRepository.getHourlyForecast(params.lat, params.lon);
+    return forecaseRepository.getHourlyForecast(params.context);
   }
 }

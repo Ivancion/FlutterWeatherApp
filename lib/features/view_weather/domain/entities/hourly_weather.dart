@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'package:weather_app/features/view_weather/domain/entities/weather.dart';
 
 class HourlyWeather extends Equatable {
-  final String icon;
-  final String description;
+  final Weather weather;
   final double windSpeed;
   final int temperature;
   final DateTime dateTime;
@@ -10,8 +10,7 @@ class HourlyWeather extends Equatable {
   final double visibility;
 
   const HourlyWeather({
-    required this.icon,
-    required this.description,
+    required this.weather,
     required this.windSpeed,
     required this.temperature,
     required this.dateTime,
@@ -21,8 +20,7 @@ class HourlyWeather extends Equatable {
 
   @override
   List<Object?> get props => [
-        icon,
-        description,
+        weather,
         windSpeed,
         temperature,
         dateTime,

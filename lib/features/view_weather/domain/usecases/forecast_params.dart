@@ -1,14 +1,11 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 
 class ForecastParams extends Equatable {
-  final double lat;
-  final double lon;
+  final BuildContext context;
 
-  const ForecastParams({
-    required this.lat,
-    required this.lon,
-  });
+  const ForecastParams({required this.context});
 
   @override
-  List<Object?> get props => [lat, lon];
+  List<Object?> get props => [context];
 }

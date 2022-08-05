@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:weather_app/features/view_weather/presentation/screens/home_screen.dart';
 
 void main() {
@@ -20,6 +21,15 @@ class MyApp extends StatelessWidget {
         'home_screen': (_) => const HomeScreen(),
       },
       initialRoute: 'home_screen',
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('ru', ''),
+      ],
     );
   }
 }
