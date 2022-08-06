@@ -8,7 +8,20 @@ abstract class GeolocationInfo {
 class GeolocationInfoImpl implements GeolocationInfo {
   @override
   Future<GeolocationPosition> getCurrentLocation() async {
+    LocationPermission permission;
     try {
+      permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          throw Exception();
+        }
+      }
+
+      if (permission == LocationPermission.deniedForever) {
+        throw Exception();
+      }
+
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.bestForNavigation,
       ).timeout(const Duration(seconds: 5));

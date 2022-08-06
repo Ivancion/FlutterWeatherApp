@@ -10,8 +10,8 @@ class HourlyWeatherDto {
   @JsonKey(name: 'wind_spd')
   final double windSpeed;
   @JsonKey(name: 'temp')
-  final int temperature;
-  @JsonKey(name: 'datetime')
+  final double temperature;
+  @JsonKey(name: 'timestamp_local')
   final DateTime dateTime;
   @JsonKey(name: 'rh')
   final int humidity;
@@ -36,8 +36,8 @@ class HourlyWeatherDto {
 extension HourlyWeatherMapper on HourlyWeatherDto {
   HourlyWeather toHourlyWeather() => HourlyWeather(
         weather: weather.toWeather(),
-        windSpeed: windSpeed,
-        temperature: temperature,
+        windSpeed: windSpeed.toInt(),
+        temperature: temperature.toInt(),
         dateTime: dateTime,
         humidity: humidity,
         visibility: visibility,

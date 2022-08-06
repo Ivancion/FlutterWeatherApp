@@ -10,9 +10,9 @@ class DailyWeatherDto {
   @JsonKey(name: 'wind_spd')
   final double windSpeed;
   @JsonKey(name: 'max_temp')
-  final int maxTemp;
+  final double maxTemp;
   @JsonKey(name: 'min_temp')
-  final int minTemp;
+  final double minTemp;
   @JsonKey(name: 'rh')
   final int humidity;
   @JsonKey(name: 'vis')
@@ -40,8 +40,8 @@ extension DailyWeatherMapper on DailyWeatherDto {
   DailyWeather toDailyWeather() => DailyWeather(
         weather: weather.toWeather(),
         windSpeed: windSpeed,
-        maxTemp: maxTemp,
-        minTemp: minTemp,
+        maxTemp: maxTemp.toInt(),
+        minTemp: minTemp.toInt(),
         humidity: humidity,
         visibility: visibility,
         dateTime: dateTime,

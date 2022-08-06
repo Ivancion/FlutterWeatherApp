@@ -3,13 +3,13 @@ import 'package:weather_app/features/view_weather/domain/entities/hourly_weather
 
 class HourlyForecast extends Equatable {
   final String cityName;
-  final List<HourlyWeather> hourWeather;
+  final List<HourlyWeather> hourlyWeather;
 
   const HourlyForecast({
     required this.cityName,
-    required this.hourWeather,
+    required this.hourlyWeather,
   });
 
   @override
-  List<Object?> get props => [cityName, hourWeather];
+  List<Object?> get props => [cityName, hourlyWeather];
 }

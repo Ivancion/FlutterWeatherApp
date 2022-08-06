@@ -3,7 +3,7 @@ import 'package:weather_app/features/view_weather/domain/entities/weather.dart';
 
 class HourlyWeather extends Equatable {
   final Weather weather;
-  final double windSpeed;
+  final int windSpeed;
   final int temperature;
   final DateTime dateTime;
   final int humidity;

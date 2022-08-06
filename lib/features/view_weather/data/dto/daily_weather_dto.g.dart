@@ -10,8 +10,8 @@ DailyWeatherDto _$DailyWeatherDtoFromJson(Map<String, dynamic> json) =>
     DailyWeatherDto(
       weather: WeatherDto.fromJson(json['weather'] as Map<String, dynamic>),
       windSpeed: (json['wind_spd'] as num).toDouble(),
-      maxTemp: json['max_temp'] as int,
-      minTemp: json['min_temp'] as int,
+      maxTemp: (json['max_temp'] as num).toDouble(),
+      minTemp: (json['min_temp'] as num).toDouble(),
       humidity: json['rh'] as int,
       visibility: (json['vis'] as num).toDouble(),
       dateTime: DateTime.parse(json['datetime'] as String),

@@ -25,6 +25,6 @@ class HourlyForecastDto {
 extension HourlyForecastMapper on HourlyForecastDto {
   HourlyForecast toHourlyForecast() => HourlyForecast(
         cityName: cityName,
-        hourWeather: hourWeather.map((e) => e.toHourlyWeather()).toList(),
+        hourlyWeather: hourWeather.map((e) => e.toHourlyWeather()).toList(),
       );
 }
