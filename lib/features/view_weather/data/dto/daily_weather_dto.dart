@@ -39,7 +39,7 @@ class DailyWeatherDto {
 extension DailyWeatherMapper on DailyWeatherDto {
   DailyWeather toDailyWeather() => DailyWeather(
         weather: weather.toWeather(),
-        windSpeed: windSpeed,
+        windSpeed: windSpeed.toInt(),
         maxTemp: maxTemp.toInt(),
         minTemp: minTemp.toInt(),
         humidity: humidity,

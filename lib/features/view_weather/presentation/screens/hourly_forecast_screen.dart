@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/features/view_weather/presentation/bloc/daily_forecast_bloc/hourly_forecast_bloc.dart';
-import 'package:weather_app/features/view_weather/presentation/bloc/daily_forecast_bloc/hourly_forecast_event.dart';
-import 'package:weather_app/features/view_weather/presentation/bloc/daily_forecast_bloc/hourly_forecast_state.dart';
+import 'package:weather_app/features/view_weather/presentation/bloc/forecast_event.dart';
+import 'package:weather_app/features/view_weather/presentation/bloc/forecast_state.dart';
+import 'package:weather_app/features/view_weather/presentation/bloc/hourly_forecast_bloc.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/failure_widget.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/hourly_weather_widget.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/loading_widget.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HourlyForecastScreen extends StatelessWidget {
+  const HourlyForecastScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<HourlyForecastBloc>();
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(102, 255, 255, 1),
-      body: BlocBuilder<HourlyForecastBloc, HourlyForecastState>(
+      body: BlocBuilder<HourlyForecastBloc, ForecastState>(
         builder: (context, state) {
           if (state is Loading) {
             return const LoadingWidget();
           } else if (state is Error) {
             return FailureWidget(
               message: state.message,
-              onPressed: () => bloc.add(LoadWeather()),
+              onPressed: () => bloc.add(LoadForecast()),
             );
           } else if (state is Loaded) {
             return HourlyWeatherWidget(
-              loadDataAgain: () => bloc.add(LoadWeather()),
+              loadDataAgain: () => bloc.add(LoadForecast()),
               forecast: state.forecast,
               selectedItem: state.selectedItem,
               onItemPressed: (index) =>

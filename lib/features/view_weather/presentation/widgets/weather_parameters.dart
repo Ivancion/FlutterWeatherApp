@@ -60,7 +60,7 @@ class WeatherParameters extends StatelessWidget {
         Text(
           param,
           style: const TextStyle(
-            fontSize: 20,
+            fontSize: 16,
             color: Colors.grey,
           ),
         ),

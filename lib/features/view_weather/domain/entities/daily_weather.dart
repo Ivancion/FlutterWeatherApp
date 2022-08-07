@@ -3,7 +3,7 @@ import 'package:weather_app/features/view_weather/domain/entities/weather.dart';
 
 class DailyWeather extends Equatable {
   final Weather weather;
-  final double windSpeed;
+  final int windSpeed;
   final int maxTemp;
   final int minTemp;
   final int humidity;

@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/core/utils/date_formatter.dart';
 import 'package:weather_app/core/utils/weather_image.dart';
 import 'package:weather_app/features/view_weather/domain/entities/hourly_forecast.dart';
+import 'package:weather_app/features/view_weather/presentation/navigation/navigation.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/weather_parameters.dart';
 
 class HourlyWeatherWidget extends StatelessWidget {
@@ -48,6 +49,7 @@ class HourlyWeatherWidget extends StatelessWidget {
               item.dateTime,
               DateFormat.MMMd(locale),
             ),
+            context,
           ),
           const SizedBox(height: 20),
           SizedBox(
@@ -125,17 +127,21 @@ class HourlyWeatherWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildDateAndShowDailyForecastBtn(String date) {
+  Widget _buildDateAndShowDailyForecastBtn(String date, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('Today, $date', style: const TextStyle(fontSize: 22)),
-        Row(
-          children: const [
-            Text('Next 7 Days', style: TextStyle(fontSize: 22)),
-            SizedBox(width: 10),
-            Icon(Icons.arrow_forward_ios),
-          ],
+        GestureDetector(
+          onTap: () => Navigator.of(context)
+              .pushNamed(NavigationRouteNames.dailyForecastScreen),
+          child: Row(
+            children: const [
+              Text('Next 7 Days', style: TextStyle(fontSize: 22)),
+              SizedBox(width: 10),
+              Icon(Icons.arrow_forward_ios),
+            ],
+          ),
         ),
       ],
     );

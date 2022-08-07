@@ -1,16 +1,15 @@
 import 'package:equatable/equatable.dart';
-import 'package:weather_app/features/view_weather/domain/entities/hourly_forecast.dart';
 
-abstract class HourlyForecastState extends Equatable {
+abstract class ForecastState extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class Loading extends HourlyForecastState {}
+class Loading extends ForecastState {}
 
-class Loaded extends HourlyForecastState {
+class Loaded<T> extends ForecastState {
   final int selectedItem;
-  final HourlyForecast forecast;
+  final T forecast;
 
   Loaded({
     required this.selectedItem,
@@ -19,7 +18,7 @@ class Loaded extends HourlyForecastState {
 
   Loaded copyWith({
     int? selectedItem,
-    HourlyForecast? forecast,
+    T? forecast,
   }) {
     return Loaded(
       selectedItem: selectedItem ?? this.selectedItem,
@@ -31,7 +30,7 @@ class Loaded extends HourlyForecastState {
   List<Object?> get props => [selectedItem, forecast];
 }
 
-class Error extends HourlyForecastState {
+class Error extends ForecastState {
   final String message;
 
   Error({required this.message});

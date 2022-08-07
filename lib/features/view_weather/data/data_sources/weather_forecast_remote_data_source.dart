@@ -23,7 +23,7 @@ class WeatherForecastRemoteDataSourceImpl
   Future<DailyForecastDto> getDailyForecast(
       double lat, double lon, String lang) async {
     final url = Uri.parse(
-        'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily?lat=$lat&lon=$lon&days=7&lang=$lang');
+        'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily?lat=$lat&lon=$lon&days=8&lang=$lang');
 
     final response = await client.get(
       url,
@@ -34,7 +34,9 @@ class WeatherForecastRemoteDataSourceImpl
     );
 
     if (response.statusCode == 200) {
-      return DailyForecastDto.fromJson(jsonDecode(response.body));
+      final forecast = DailyForecastDto.fromJson(jsonDecode(response.body));
+      forecast.dailyWeather.removeAt(0);
+      return forecast;
     } else {
       throw ServerException();
     }

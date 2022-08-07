@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Arvo'),
+      theme: ThemeData(
+        fontFamily: 'Arvo',
+        scaffoldBackgroundColor: const Color.fromRGBO(102, 255, 255, 1),
+      ),
       routes: navigation.routes,
       initialRoute: navigation.initialRoute,
       localizationsDelegates: const [
