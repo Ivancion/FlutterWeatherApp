@@ -4,6 +4,7 @@ import 'package:weather_app/features/view_weather/presentation/bloc/forecast_eve
 import 'package:weather_app/features/view_weather/presentation/bloc/hourly_forecast_bloc.dart';
 import 'package:weather_app/features/view_weather/presentation/screens/daily_forecast_screen.dart';
 import 'package:weather_app/features/view_weather/presentation/screens/hourly_forecast_screen.dart';
+import 'package:weather_app/features/view_weather/presentation/screens/splash_screen.dart';
 import 'package:weather_app/injection_container.dart';
 
 abstract class NavigationRouteNames {
@@ -13,8 +14,9 @@ abstract class NavigationRouteNames {
 }
 
 class Navigation {
-  final initialRoute = NavigationRouteNames.hourlyForecastScreen;
+  final initialRoute = NavigationRouteNames.splashScreen;
   final routes = {
+    NavigationRouteNames.splashScreen: (_) => const SplashScreen(),
     NavigationRouteNames.hourlyForecastScreen: (_) =>
         BlocProvider<HourlyForecastBloc>(
           create: (context) => HourlyForecastBloc(
