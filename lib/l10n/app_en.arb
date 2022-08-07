@@ -1,0 +1,9 @@
+{
+    "wind": "Wind",
+    "humidity": "Humidity",
+    "visibility": "Visibility",
+    "today": "Today",
+    "nextDays": "Next 7 Days",
+    "metersPerSecond": "m/s",
+    "kilometer": "km"
+}

@@ -6,6 +6,7 @@ import 'package:weather_app/features/view_weather/presentation/bloc/forecast_sta
 import 'package:weather_app/features/view_weather/presentation/widgets/daily_weather_widget.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/failure_widget.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/loading_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DailyForecastScreen extends StatelessWidget {
   const DailyForecastScreen({Key? key}) : super(key: key);
@@ -13,11 +14,12 @@ class DailyForecastScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<DailyForecastBloc>();
+    final titleText = AppLocalizations.of(context)!.nextDays;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Next 7 Days',
-          style: TextStyle(color: Colors.black, fontSize: 25),
+        title: Text(
+          titleText,
+          style: const TextStyle(color: Colors.black, fontSize: 25),
         ),
         backgroundColor: const Color.fromRGBO(102, 255, 255, 1),
         elevation: 0,

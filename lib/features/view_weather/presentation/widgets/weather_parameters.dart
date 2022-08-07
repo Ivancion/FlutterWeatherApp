@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/core/utils/custom_icons.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WeatherParameters extends StatelessWidget {
   const WeatherParameters({
@@ -15,26 +16,27 @@ class WeatherParameters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
     return Row(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _buildWeatherItem(
           Icons.wind_power,
-          '$windSpeed m/s',
-          'Wind',
+          '$windSpeed ${localizations.metersPerSecond}',
+          localizations.wind,
         ),
         const SizedBox(width: 20),
         _buildWeatherItem(
           CustomIcons.rainDrop,
           '$humidity %',
-          'Humidity',
+          localizations.humidity,
         ),
         const SizedBox(width: 20),
         _buildWeatherItem(
           Icons.visibility,
-          '${visibility.toStringAsFixed(1)} km',
-          'Visibility',
+          '${visibility.toStringAsFixed(1)} ${localizations.kilometer}',
+          localizations.visibility,
         )
       ],
     );

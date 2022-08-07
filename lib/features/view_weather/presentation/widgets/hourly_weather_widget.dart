@@ -5,6 +5,7 @@ import 'package:weather_app/core/utils/weather_image.dart';
 import 'package:weather_app/features/view_weather/domain/entities/hourly_forecast.dart';
 import 'package:weather_app/features/view_weather/presentation/navigation/navigation.dart';
 import 'package:weather_app/features/view_weather/presentation/widgets/weather_parameters.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HourlyWeatherWidget extends StatelessWidget {
   const HourlyWeatherWidget({
@@ -128,18 +129,21 @@ class HourlyWeatherWidget extends StatelessWidget {
   }
 
   Widget _buildDateAndShowDailyForecastBtn(String date, BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+    final todayString = localizations.today;
+    final nextDays = localizations.nextDays;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Today, $date', style: const TextStyle(fontSize: 22)),
+        Text('$todayString, $date', style: const TextStyle(fontSize: 18)),
         GestureDetector(
           onTap: () => Navigator.of(context)
               .pushNamed(NavigationRouteNames.dailyForecastScreen),
           child: Row(
-            children: const [
-              Text('Next 7 Days', style: TextStyle(fontSize: 22)),
-              SizedBox(width: 10),
-              Icon(Icons.arrow_forward_ios),
+            children: [
+              Text(nextDays, style: const TextStyle(fontSize: 18)),
+              const SizedBox(width: 10),
+              const Icon(Icons.arrow_forward_ios),
             ],
           ),
         ),

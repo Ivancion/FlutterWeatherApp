@@ -1,0 +1,9 @@
+{
+    "wind": "Ветер",
+    "humidity": "Влажность",
+    "visibility": "Видимость",
+    "today": "Сегодня",
+    "nextDays": "Следующие 7 Дней",
+    "metersPerSecond": "м/с",
+    "kilometer": "км"
+}
