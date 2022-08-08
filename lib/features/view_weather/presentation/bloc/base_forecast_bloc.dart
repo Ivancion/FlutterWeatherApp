@@ -5,9 +5,7 @@ import 'package:weather_app/core/error/failures.dart';
 import 'package:weather_app/core/localization/localization_info.dart';
 import 'package:weather_app/features/view_weather/presentation/bloc/forecast_event.dart';
 import 'package:weather_app/features/view_weather/presentation/bloc/forecast_state.dart';
-
-const String SERVER_FAILURE_MESSAGE = 'Server Failure';
-const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 abstract class BaseForecastBloc<T> extends Bloc<ForecastEvent, ForecastState> {
   final LocalizationInfo localizationInfo;
@@ -44,11 +42,15 @@ abstract class BaseForecastBloc<T> extends Bloc<ForecastEvent, ForecastState> {
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
       case ServerFailure:
-        return SERVER_FAILURE_MESSAGE;
+        final serverFailureText = AppLocalizations.of(context)!.serverFailure;
+        return serverFailureText;
       case CacheFailure:
-        return CACHE_FAILURE_MESSAGE;
+        final cacheFailureText = AppLocalizations.of(context)!.cacheFailure;
+        return cacheFailureText;
       default:
-        return 'Unexpected error';
+        final unexpectedErrorText =
+            AppLocalizations.of(context)!.unexpectedError;
+        return unexpectedErrorText;
     }
   }
 }

@@ -5,5 +5,11 @@
     "today": "Today",
     "nextDays": "Next 7 Days",
     "metersPerSecond": "m/s",
-    "kilometer": "km"
+    "kilometer": "km",
+    "somethingWrong": "Oops, something went wrong...",
+    "reason": "Reason is",
+    "tryAgain": "Try again",
+    "serverFailure": "Server Failure",
+    "cacheFailure": "Cache Failure",
+    "unexpectedError": "Unexpected error"
 }

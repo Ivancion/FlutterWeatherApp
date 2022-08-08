@@ -132,16 +132,17 @@ class HourlyWeatherWidget extends StatelessWidget {
     final localizations = AppLocalizations.of(context)!;
     final todayString = localizations.today;
     final nextDays = localizations.nextDays;
+    final textSize = MediaQuery.of(context).size.width * 0.045;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('$todayString, $date', style: const TextStyle(fontSize: 18)),
+        Text('$todayString, $date', style: TextStyle(fontSize: textSize)),
         GestureDetector(
           onTap: () => Navigator.of(context)
               .pushNamed(NavigationRouteNames.dailyForecastScreen),
           child: Row(
             children: [
-              Text(nextDays, style: const TextStyle(fontSize: 18)),
+              Text(nextDays, style: TextStyle(fontSize: textSize)),
               const SizedBox(width: 10),
               const Icon(Icons.arrow_forward_ios),
             ],

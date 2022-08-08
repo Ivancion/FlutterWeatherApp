@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FailureWidget extends StatelessWidget {
   const FailureWidget({
@@ -12,6 +13,10 @@ class FailureWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+    final somethingWrong = localizations.somethingWrong;
+    final reason = localizations.reason;
+    final tryAgain = localizations.tryAgain;
     return Center(
       child: Column(
         children: [
@@ -21,20 +26,20 @@ class FailureWidget extends StatelessWidget {
             width: 150,
           ),
           const SizedBox(height: 20),
-          const Text(
-            'Oops, something went wrong...',
-            style: TextStyle(fontSize: 20),
+          Text(
+            somethingWrong,
+            style: const TextStyle(fontSize: 20),
           ),
           Text(
-            'Reason is : $message',
+            '$reason : $message',
             style: const TextStyle(fontSize: 20),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: onPressed,
-            child: const Text(
-              'Try again',
-              style: TextStyle(fontSize: 20),
+            child: Text(
+              tryAgain,
+              style: const TextStyle(fontSize: 20),
             ),
           ),
         ],

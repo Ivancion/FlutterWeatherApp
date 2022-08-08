@@ -5,5 +5,11 @@
     "today": "Сегодня",
     "nextDays": "Следующие 7 Дней",
     "metersPerSecond": "м/с",
-    "kilometer": "км"
+    "kilometer": "км",
+    "somethingWrong": "Упс, что-то пошло не так...",
+    "reason": "Причина",
+    "tryAgain": "Попробовать снова",
+    "serverFailure": "Ошибка Сервера",
+    "cacheFailure": "Ошибка кеша",
+    "unexpectedError": "Неожиданная ошибка"
 }

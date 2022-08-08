@@ -4,6 +4,7 @@ import 'package:weather_app/core/error/exceptions.dart';
 
 import 'package:weather_app/core/error/failures.dart';
 import 'package:weather_app/core/geolocation/geolocation_info.dart';
+import 'package:weather_app/core/geolocation/geolocation_position.dart';
 import 'package:weather_app/core/localization/localization_info.dart';
 import 'package:weather_app/core/network/network_info.dart';
 import 'package:weather_app/features/view_weather/data/data_sources/weather_forecast_local_data_source.dart';
@@ -20,8 +21,9 @@ class WeatherForecastRepositoryImpl implements WeatherForecaseRepository {
   final GeolocationInfo geolocationInfo;
   final LocalizationInfo localizationInfo;
   final NetworkInfo networkInfo;
+  late GeolocationPosition _geoPosition;
 
-  const WeatherForecastRepositoryImpl({
+  WeatherForecastRepositoryImpl({
     required this.localDataSource,
     required this.remoteDataSource,
     required this.geolocationInfo,
@@ -35,10 +37,9 @@ class WeatherForecastRepositoryImpl implements WeatherForecaseRepository {
     if (await networkInfo.isConnected) {
       try {
         final locale = localizationInfo.getCurrentLocale(context);
-        final geoPosition = await geolocationInfo.getCurrentLocation();
         final dailyForecast = await remoteDataSource.getDailyForecast(
-          geoPosition.lat,
-          geoPosition.lon,
+          _geoPosition.lat,
+          _geoPosition.lon,
           locale,
         );
         localDataSource.cacheDailyForecast(dailyForecast);
@@ -62,10 +63,10 @@ class WeatherForecastRepositoryImpl implements WeatherForecaseRepository {
     if (await networkInfo.isConnected) {
       try {
         final locale = localizationInfo.getCurrentLocale(context);
-        final geoPosition = await geolocationInfo.getCurrentLocation();
+        _geoPosition = await geolocationInfo.getCurrentLocation();
         final hourlyForecast = await remoteDataSource.getHourlyForecast(
-          geoPosition.lat,
-          geoPosition.lon,
+          _geoPosition.lat,
+          _geoPosition.lon,
           locale,
         );
         localDataSource.cacheHourlyForecast(hourlyForecast);
