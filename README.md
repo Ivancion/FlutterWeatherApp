@@ -1,16 +1,27 @@
-# weather_app
+# Weather Forecast
+App was written with using of Clean Architecture and Bloc as state manager.
 
-A new Flutter project.
+# Functionality
+This app can show you weather forecast by hours/days on your current geolocation parameters (Kiev by default if there are none). App caches last forecast data and if you don't have internet connection it will show you this data. Also application supports localization in two languages (english and russian) and everyday reminds you to check weather forecast.
 
-## Getting Started
+## Screenshots from the program
 
-This project is a starting point for a Flutter application.
+<p>Push notification</p>
+<img src="screenshots/fcm_notification.png" alt="" width="300">
 
-A few resources to get you started if this is your first Flutter project:
+<p>Splash screen</p>
+<img src="screenshots/splash_screen.png" alt="" width="300">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<p>Hourly weather forecast screen with different localizations</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p float="left">
+  <img src="screenshots/hourly_forecast_ru.png" alt="" width="300">
+  <img src="screenshots/hourly_forecast_en.png" alt="" width="300">
+</p>
+
+<p>Daily weather forecast screen with different localizations</p>
+
+<p float="left">
+  <img src="screenshots/daily_forecast_ru.png" alt="" width="300">
+  <img src="screenshots/daily_forecast_en.png" alt="" width="300">
+</p>
